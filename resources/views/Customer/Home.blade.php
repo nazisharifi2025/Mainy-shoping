@@ -1,5 +1,7 @@
 <html>
-    <heade></heade>
+    <heade>
+         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    </heade>
     <body class="h-screen w-full overflow-y-scroll">
         <div class="w-11/12 mx-auto flex flex-col justify-center items-center">
             <h1 class="text-4xl font-bold text-center">All Customer</h1>
