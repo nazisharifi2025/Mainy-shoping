@@ -3,7 +3,8 @@
          <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     </heade>
     <body class="h-screen w-full overflow-y-scroll">
-        <div class="w-11/12 mx-auto flex flex-col justify-center items-center">
+        @if ($users->count()>0)
+            <div class="w-11/12 mx-auto flex flex-col justify-center items-center">
             <h1 class="text-4xl font-bold text-center">All Customer</h1>
             <table class="border border-collapse w-full">
                 <tr>
@@ -22,5 +23,8 @@
                 @endforeach
             </table>
         </div>
+        @else
+        <h1 class="text-center text-4xl font-bold">No Customer Currently Exists</h1>
+        @endif
     </body>
 </html>

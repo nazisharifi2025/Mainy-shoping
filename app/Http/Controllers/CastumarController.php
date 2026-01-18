@@ -9,6 +9,6 @@ class CastumarController extends Controller
 {
     public function index(){
         $users = User::all();
-        return view('Customer.Home' , ['users' , $users]);
+        return view('Customer.Home')->with('users' , $users);
     }
 }
