@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\CustomerEvent;
 use App\Models\Castumar;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -29,6 +30,7 @@ class CastumarController extends Controller
         $Customer->email = $request->email;
         $Customer->gender = $request->gender;
         $Customer->img_url = $imgPath;
+        event(new CustomerEvent($Customer));
         $Customer->save();
         return redirect('/');
     }
