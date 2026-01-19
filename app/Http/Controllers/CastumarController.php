@@ -10,8 +10,8 @@ use Illuminate\Http\Request;
 class CastumarController extends Controller
 {
     public function index(){
-        $users = User::all();
-        return view('Customer.Home')->with('users' , $users);
+        $Customer = Castumar::all();
+        return view('Customer.Home')->with('Customers' , $Customer);
     }
     public function Create(Request $request){
         $request->validate([
@@ -32,6 +32,6 @@ class CastumarController extends Controller
         $Customer->img_url = $imgPath;
         event(new CustomerEvent($Customer));
         $Customer->save();
-        return redirect('/');
+        return redirect('/Customer');
     }
 }
