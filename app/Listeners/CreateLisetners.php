@@ -2,7 +2,7 @@
 
 namespace App\Listeners;
 
-use App\Models\User;
+use App\Events\CustomerEvent;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 
@@ -19,13 +19,8 @@ class CreateLisetners
     /**
      * Handle the event.
      */
-    public function handle(object $event): void
+    public function handle(CustomerEvent $event): void
     {
-        $castomer = $event->customer;
-        $users = new User();
-        $users->name = $castomer->name;
-        $users->email = $castomer->email;
-        $users->password = bcrypt('121212nazi');
-        $users->save();
+        //
     }
 }
