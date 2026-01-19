@@ -4,7 +4,7 @@
     </heade>
     <body class="h-screen w-full overflow-y-scroll  flex  flex-col gap-9 ">
         <h1 class="text-4xl font-bold text-center font-serif">ADD CUSTOMER</h1> 
-      <form class="w-8/12 mx-auto flex flex-col gap-4">
+      <form action="{{ URL('Customer/Create') }}" method="post" class="w-8/12 mx-auto flex flex-col gap-4">
         <lable class="text-xl font-bold ">
             Name:
         <input  class="py-2 px-6 w-full border outline-none rounded-md" type="text" name="name" />

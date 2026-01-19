@@ -20,5 +20,6 @@ Route::middleware('auth')->group(function () {
 Route::prefix('Customer')->controller(CastumarController::class)->group(function(){
     Route::get('/' , 'index');
     Route::view('create' , 'Customer.Create');
+    Route::post('Create', 'Create');
 });
 require __DIR__.'/auth.php';
