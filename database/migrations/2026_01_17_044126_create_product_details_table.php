@@ -16,7 +16,8 @@ return new class extends Migration
             $table->integer('Price');
             $table->string('Description');
             $table->integer('quantity');
-            $table->integer('made_in');
+            $table->string('made_in');
+            $table->string('img_url');
             $table->timestamps();
         });
     }
