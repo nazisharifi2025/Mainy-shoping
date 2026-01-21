@@ -8,6 +8,9 @@ use Illuminate\Http\Request;
 
 class ProductController extends Controller
 {
+    public function showform(){
+        return view('Product.add');
+    }
     public function create(Request $request){
         $path = null;
         if($request->hasFile('img')){
@@ -18,10 +21,12 @@ class ProductController extends Controller
         $product->save();
         $productDetails = new ProductDetails();
         $productDetails->price = $request->price;
+        $productDetails->Description = $request->des;
         $productDetails->quantity = $request->quantity;
         $productDetails->made_in = $request->madeIn;
         $productDetails->product_id = $product->id;
         $productDetails->img_url = $path;
         $productDetails->save();
+        return redirect('/');
     }
 }

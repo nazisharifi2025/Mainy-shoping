@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CastumarController;
+use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,5 +22,9 @@ Route::prefix('Customer')->controller(CastumarController::class)->group(function
     Route::get('/' , 'index');
     Route::view('create' , 'Customer.Create');
     Route::post('Create', 'Create');
+});
+Route::prefix('Product')->controller(ProductController::class)->group(function(){
+    Route::get('shoing' , "showform");
+    Route::post('create' , 'create');
 });
 require __DIR__.'/auth.php';
