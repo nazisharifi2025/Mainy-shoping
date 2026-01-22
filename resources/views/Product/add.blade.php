@@ -2,7 +2,7 @@
     <heade>
          <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
     </heade>
-    <body class="h-screen w-full overflow-y-scroll flex flex-col justify-center items-center gap-4 ">
+    <body class="h-screen w-full bg-[url('bg.jpg')] bg-cover overflow-y-scroll flex flex-col justify-center items-center gap-4 ">
       <form action="{{ URL('Product/create') }}" enctype="multipart/form-data" method="post" class="w-8/12 bg-white  p-6 mx-auto flex flex-col gap-4">
          <h1 class="text-4xl font-bold text-center font-serif">ADD A Product</h1> 
         @csrf

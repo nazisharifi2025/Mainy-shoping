@@ -10,7 +10,8 @@ class ProductController extends Controller
 {
     public function landeng(){
         $products = Product::with('Prodetails')->get();
-        return view('welcome' , ['products'=> $products]);
+        // return $products;
+        return view('welcome' ,['products'=> $products]);
     }
     public function showform(){
         return view('Product.add');

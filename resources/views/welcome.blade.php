@@ -19,21 +19,22 @@
             </style>
         @endif
     </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
+    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a]  flex    min-h-screen flex-col">
+        <header class="w-full  bg-blue-950 shadow-md shadow-gray-200  fixed text-sm py-8 flex px-12 justify-between text-white items-center h-20 not-has-[nav]:hidden">
+            <h1 class="text-3xl font-bold font-serif">Sharifi Online Store</h1>
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
+                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] font-bold hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                         >
                             Dashboard
                         </a>
                     @else
                         <a
                             href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
+                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-white border font-bold border-transparent hover:border-[#19140035] dark:hover:border-[#fffffd] rounded-sm text-sm leading-normal"
                         >
                             Log in
                         </a>
@@ -41,7 +42,7 @@
                         @if (Route::has('register'))
                             <a
                                 href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] font-bold hover:border-[#1915014a] border text-white dark:border-[#f3f3f0] dark:hover:border-[#fafafa] rounded-sm text-sm leading-normal">
                                 Register
                             </a>
                         @endif
@@ -49,8 +50,18 @@
                 </nav>
             @endif
         </header>
-        <div>
+        <div class=" bg-cover h-[97vh]">
             <x-hero/>
+            <div class=" grid grid-cols-3 justify-center w-8/12 mx-auto items-center gap-5 my-12">
+                @foreach ($products as $product)
+                     <div class="flex flex-col bg-blue-400 rounded-t-full h-84 items-center  w-60 text-black border">
+                        <div class="w-full h-3/12 rounded-t-full">
+                        <img src="storage/{{  $product->prodetails->img_url }}" class="h-full w-full rounded-t-full" />
+                        </div>
+                        <h1>{{ $product->name }}</h1>
+                     </div>
+                @endforeach
+            </div>
         </div>
 
         @if (Route::has('login'))
