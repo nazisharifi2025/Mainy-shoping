@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CastumarController;
 use App\Http\Controllers\ProductController;
+use App\Http\Middleware\GlobalMiddleware;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/' , [ProductController::class , 'landeng']);
@@ -21,7 +22,7 @@ Route::prefix('Customer')->controller(CastumarController::class)->group(function
     Route::view('create' , 'Customer.Create');
     Route::post('Create', 'Create');
 });
-Route::prefix('Product')->controller(ProductController::class)->group(function(){
+Route::prefix('Product')->controller(ProductController::class)->middleware(GlobalMiddleware::class)->group(function(){
     Route::get('shoing' , "showform");
     Route::post('create' , 'create');
 });

@@ -21,7 +21,9 @@ class ProductController extends Controller
         $request->validate([
             "name"=> "required|max:4|min:15",
             "Price"=> "required|max:90|min:400",
-             "img_url"=> "nullable|mimes:png,jpg,jpeg,",
+            "quantity"=> "required",
+            "Desctption"=> "required",
+            "img_url"=> "nullable|mimes:png,jpg,jpeg,",
         ]);
         $path = null;
         if($request->hasFile('img')){
