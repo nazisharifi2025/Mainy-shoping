@@ -20,8 +20,8 @@
         @endif
     </head>
     <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a]  flex    min-h-screen flex-col">
-        <header class="w-full  bg-blue-950 shadow-md shadow-gray-200  fixed text-sm py-8 flex px-12 justify-between text-white items-center h-20 not-has-[nav]:hidden">
-            <h1 class="text-3xl font-bold font-serif">Sharifi Online Store</h1>
+        <header class="w-full z-50 bg-blue-950 shadow-md shadow-gray-200  fixed text-sm py-8 flex px-12 justify-between text-white items-center h-20 not-has-[nav]:hidden">
+            <h1 class="text-3xl font-bold font-serif bg-gradient-to-l from-blue-400 via-pink-300 to-blue-900 bg-clip-text text-transparent">Sharifi Online Store</h1>
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
                     @auth
@@ -52,13 +52,22 @@
         </header>
         <div class=" bg-cover h-[97vh]">
             <x-hero/>
-            <div class=" grid grid-cols-3 justify-center w-8/12 mx-auto items-center gap-5 my-12">
+            <div class=" grid grid-cols-3 h-screen justify-center w-8/12 mx-auto items-center gap-5 my-12">
                 @foreach ($products as $product)
-                     <div class="flex flex-col bg-blue-400 rounded-t-full h-84 items-center  w-60 text-black border">
-                        <div class="w-full h-3/12 rounded-t-full">
-                        <img src="storage/{{  $product->prodetails->img_url }}" class="h-full w-full rounded-t-full" />
+                     <div class="flex flex-col bg-blue-950 h-[450px] w-72 text-black border">
+                        <div class="w-full  relative">
+                        <img src="storage/{{  $product->prodetails->img_url }}" class="h-full -z-40 w-full " />
+                        <h1 class="text-3xl font-bold text-white absolute top-0 py-2 w-full flex justify-center items-center my-5 left-0 bg-blue-950/40">{{ $product->name }}</h1>
                         </div>
-                        <h1>{{ $product->name }}</h1>
+                       
+                        <div class="flex flex-col gap-2 text-white p-4">
+                             <div class="flex justify-between w-full">
+                        <p> <span class=" font-bold">Price:</span> {{ $product->prodetails->Price }} </p>
+                         <p><span class=" font-bold">Quantity:</span> {{ $product->prodetails->quantity }} </p>
+                        </div>
+                             <p class="w-full mx-auto text-sm"> {{ $product->prodetails->Description }} </p>
+                        <p><span class=" font-bold">MadeIn:</span> {{ $product->prodetails->made_in }}</p>
+                     </div>
                      </div>
                 @endforeach
             </div>
