@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Product;
 use App\Models\ProductDetails;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Gate;
 
 class ProductController extends Controller
 {
@@ -17,11 +18,17 @@ class ProductController extends Controller
         return view('Product.add');
     }
     public function create(Request $request){
+        $request->validate([
+            "name"=> "required|max:4|min:15",
+            "Price"=> "required|max:90|min:400",
+             "img_url"=> "nullable|mimes:png,jpg,jpeg,",
+        ]);
         $path = null;
         if($request->hasFile('img')){
             $path = $request->file('img')->store('Productimages' , 'public');
         }
         $product = new Product();
+         Gate::authorize('create' , $product);
         $product->name = $request->name;
         $product->save();
         $productDetails = new ProductDetails();
