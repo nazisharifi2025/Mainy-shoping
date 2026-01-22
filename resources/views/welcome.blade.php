@@ -27,7 +27,7 @@
                     @auth
                         <a
                             href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] font-bold hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
+                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] font-bold hover:border-[#1915014a] border text-white dark:border-[#ffffff] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
                         >
                             Dashboard
                         </a>
@@ -50,7 +50,8 @@
                 </nav>
             @endif
         </header>
-        <div class=" bg-cover h-[97vh]">
+        {{-- Headers endded and card start --}}
+        <div class=" bg-cover h-fit">
             <x-hero/>
             <div class=" grid grid-cols-3 h-screen justify-center w-8/12 mx-auto items-center gap-5 my-12">
                 @foreach ($products as $product)
