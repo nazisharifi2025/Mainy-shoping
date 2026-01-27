@@ -1,6 +1,7 @@
 <html>
     <heade>
          <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+          {{-- @vite(['./resources/css/app.css','resources/js/app.js']) --}}
     </heade>
     <body>
         <div class="bg-[url('shop.jpg')] bg-cover h-[70vh] w-full flex justify-end flex-col gap-4 p-10">

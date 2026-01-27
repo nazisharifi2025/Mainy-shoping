@@ -5,7 +5,8 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <title>{{ config('app.name', 'Laravel') }}</title>
-
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+        {{-- @vite(['./resources/css/app.css','resources/js/app.js']) --}}
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
@@ -53,7 +54,17 @@
         {{-- Headers endded and card start --}}
         <div class=" bg-cover h-fit">
             <x-hero/>
-            <div class=" grid grid-cols-3 h-screen justify-center w-8/12 mx-auto items-center gap-5 my-12">
+            <div class="w-full grid grid-cols-3 gap-2">
+                <div class=" col-span-1 border border-black">
+                    <h1 class="text-4xl font-bold">Users Information</h1>
+                    @if (Auth::user())
+                        <h1 class="text-2xl">{{ Auth::user()->name }}</h1>
+                    @endif
+                    
+                </div>
+                <div class=" col-span-2">
+                    <h1 class=" text-6xl font-bold">Featured Product</h1>
+                    <div class=" grid grid-cols-3 h-screen justify-center mx-auto items-center gap-1 my-12">
                 @foreach ($products as $product)
                      <div class="flex flex-col bg-blue-950 h-[450px] w-72 text-black border">
                         <div class="w-full  relative">
@@ -67,11 +78,19 @@
                          <p><span class=" font-bold">Quantity:</span> {{ $product->prodetails->quantity }} </p>
                         </div>
                              <p class="w-full mx-auto text-sm"> {{ $product->prodetails->Description }} </p>
-                        <p><span class=" font-bold">MadeIn:</span> {{ $product->prodetails->made_in }}</p>
+                        <div class="flex justify-between items-center ">
+                            <p><span class=" font-bold">MadeIn:</span> {{ $product->prodetails->made_in }}</p>
+                            <a href={{ URL('middleware') }}>
+                            <i class="fas fa-shopping-cart"></i>
+                            </a>
+                        </div>
                      </div>
                      </div>
                 @endforeach
             </div>
+                </div>
+            </div>
+            
         </div>
 
         @if (Route::has('login'))
