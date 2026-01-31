@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CartController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CastumarController;
 use App\Http\Controllers\ProductController;
@@ -26,4 +27,5 @@ Route::prefix('Product')->controller(ProductController::class)->middleware(Globa
     Route::get('shoing' , "showform");
     Route::post('create' , 'create');
 });
+Route::post("cart/add/{id}/{price}" , [CartController::class , "cart"]);
 require __DIR__.'/auth.php';
