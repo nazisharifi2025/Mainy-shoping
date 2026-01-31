@@ -80,9 +80,11 @@
                              <p class="w-full mx-auto text-sm"> {{ $product->prodetails->Description }} </p>
                         <div class="flex justify-between items-center ">
                             <p><span class=" font-bold">MadeIn:</span> {{ $product->prodetails->made_in }}</p>
-                            <a href={{ URL('middleware') }}>
-                            <i class="fas fa-shopping-cart"></i>
-                            </a>
+                           <from method="post" action="{{ URL('') }}">
+                            <button>
+                                 <i class="fas fa-shopping-cart"></i>
+                            </button>
+                           </form>
                         </div>
                      </div>
                      </div>
