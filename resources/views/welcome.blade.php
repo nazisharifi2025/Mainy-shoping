@@ -60,7 +60,13 @@
                     @if (Auth::user())
                         <h1 class="text-2xl">{{ Auth::user()->name }}</h1>
                     @endif
-                    
+                   @foreach (session('cart', []) as $item)
+    <p>
+        {{ $item['name'] }}
+        {{ $item['quantity'] }} × {{ $item['price'] }}
+    </p>
+@endforeach
+
                 </div>
                 <div class=" col-span-2">
                     <h1 class=" text-6xl font-bold">Featured Product</h1>
@@ -80,11 +86,13 @@
                              <p class="w-full mx-auto text-sm"> {{ $product->prodetails->Description }} </p>
                         <div class="flex justify-between items-center ">
                             <p><span class=" font-bold">MadeIn:</span> {{ $product->prodetails->made_in }}</p>
-                           <from method="post" action="{{ URL('') }}">
-                            <button>
-                                 <i class="fas fa-shopping-cart"></i>
-                            </button>
-                           </form>
+                          <form method="post" action="{{ url('/cart/add', [$product->id, $product->prodetails->Price]) }}">
+                          @csrf
+                         <button>
+        <i class="fas fa-shopping-cart"></i>
+    </button>
+</form>
+
                         </div>
                      </div>
                      </div>
