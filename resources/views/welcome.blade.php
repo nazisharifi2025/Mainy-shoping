@@ -32,6 +32,13 @@
                         >
                             Dashboard
                         </a>
+                        @if (Auth::user()->user_type === "Admin")
+                            <div class="flex gap-3 px-3">
+                                <a href="/product/add">Add Product</a>
+                                <a href="/Customer/create">Add Customer</a>
+                                <a href="/Customer">show Customer</a>
+                            </div>
+                        @endif
                     @else
                         <a
                             href="{{ route('login') }}"

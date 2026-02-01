@@ -24,7 +24,7 @@ Route::prefix('Customer')->controller(CastumarController::class)->group(function
     Route::post('Create', 'Create');
 });
 Route::prefix('Product')->controller(ProductController::class)->middleware(GlobalMiddleware::class)->group(function(){
-    Route::get('shoing' , "showform");
+    Route::get('add' , "showform");
     Route::post('create' , 'create');
 });
 Route::post("cart/add/{id}/{price}" , [CartController::class , "cart"]);
