@@ -38,6 +38,11 @@
                                 <a href="/Customer/create">Add Customer</a>
                                 <a href="/Customer">show Customer</a>
                             </div>
+                            @else
+                              <div class="flex gap-3 px-3">
+                                <a href="/">Products</a>
+                                <a href="/Customer">show Customer</a>
+                            </div>
                         @endif
                     @else
                         <a
