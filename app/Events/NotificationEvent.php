@@ -17,9 +17,10 @@ class NotificationEvent implements ShouldBroadcast
     /**
      * Create a new event instance.
      */
+    // public $messege;
     public function __construct()
     {
-        //
+        // $this->messege = $messege ;
     }
 
     /**

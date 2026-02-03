@@ -19,13 +19,13 @@ class ProductController extends Controller
         return view('Product.add');
     }
     public function create(Request $request){
-        $request->validate([
-            "name"=> "required|max:4|min:15",
-            "Price"=> "required|max:90|min:400",
-            "quantity"=> "required",
-            "Desctption"=> "required",
-            "img_url"=> "nullable|mimes:png,jpg,jpeg,",
-        ]);
+        // $request->validate([
+        //     "name"=> "required|max:4|min:15",
+        //     "Price"=> "required|max:90|min:400",
+        //     "quantity"=> "required",
+        //     "Desctption"=> "required",
+        //     "img_url"=> "nullable|mimes:png,jpg,jpeg,",
+        // ]);
         $path = null;
         if($request->hasFile('img')){
             $path = $request->file('img')->store('Productimages' , 'public');

@@ -6,7 +6,7 @@
         <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
         <title>{{ config('app.name', 'Laravel') }}</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
-        {{-- @vite(['./resources/css/app.css','resources/js/app.js']) --}}
+        @vite(['./resources/css/app.css','resources/js/app.js'])
         <!-- Fonts -->
         <link rel="preconnect" href="https://fonts.bunny.net">
         <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
@@ -118,5 +118,12 @@
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
         @endif
+        <script>
+            setTimeout(() => {
+                window.Echo.channel('awareness').listen('NotificationEven' , (e)=>{
+                    alert('added new product');
+                })
+            }, 300);
+        </script>
     </body>
 </html>
