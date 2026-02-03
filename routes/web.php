@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CastumarController;
 use App\Http\Controllers\ProductController;
 use App\Http\Middleware\GlobalMiddleware;
+use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/' , [ProductController::class , 'landeng']);
@@ -28,4 +29,5 @@ Route::prefix('Product')->controller(ProductController::class)->middleware(Globa
     Route::post('create' , 'create');
 });
 Route::post("cart/add/{id}/{price}" , [CartController::class , "cart"]);
+Broadcast::routes();
 require __DIR__.'/auth.php';

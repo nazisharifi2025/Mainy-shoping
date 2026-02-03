@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\NotificationEvent;
 use App\Models\Product;
 use App\Models\ProductDetails;
 use Illuminate\Http\Request;
@@ -42,5 +43,6 @@ class ProductController extends Controller
         $productDetails->img_url = $path;
         $productDetails->save();
         return redirect('/');
+        event(new NotificationEvent());
     }
 }
